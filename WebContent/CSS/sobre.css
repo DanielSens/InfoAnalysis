@@ -1,0 +1,15 @@
+body{
+    background-color: #8B3A3A;
+}
+
+H1{
+    font-family: 'Roboto', sans-serif;
+    padding: 22px;
+    color: white;
+    width: 60%;
+}
+
+p, li{
+	color: white;
+}
+
