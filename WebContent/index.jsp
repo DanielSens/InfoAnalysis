@@ -17,18 +17,16 @@ Cidade cidade = (Cidade) request.getAttribute("list");
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="CSS/dashboard.css" />
+<link rel="stylesheet" type="text/css" href="CSS/weather.css" />
 <link rel="stylesheet" type="text/css" href="CSS/stylejs.css" />
 <!--Fontes-->
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top"
-		style="background-color: #CD5B45;">
+		style="justify-content: end;">
 		<a class="navbar-brand" href="index.html">INFO ANALYSIS </a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
@@ -51,63 +49,31 @@ Cidade cidade = (Cidade) request.getAttribute("list");
 	</nav>
 	<br>
 	<br>
+	<div class="card">
+		<div class="search">
+			<input type="text" class="search-bar" placeholder="Search">
+			<button>
+				<svg stroke="currentColor" fill="currentColor" stroke-width="0"
+					viewBox="0 0 1024 1024" height="1.5em" width="1.5em"
+					xmlns="http://www.w3.org/2000/svg">
+          <path
+						d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+          </path>
+        </svg>
+			</button>
+		</div>
+		<div class="Weather">
+			<h3 class="city">Previsão do tempo em <%=cidade.getCity()%></h3>
+			<h1 class="temp"><%=(int) cidade.getTemp()%>ºC</h1>
+			<div class="flex">
+				<img src="" alt="" class="icon" />
+				<div class="description"><%=cidade.getDescription()%></div>
+			</div>
+			<div class="humidity">Humidade: <%=(int) cidade.getHumidity()%>%</div>
+			<div class="wind">Velocidade do Vento: <%=cidade.getWind_speedy()%></div>
+		</div>
+	</div>
 
-	<div id="container">
-		<div id="content">
-			<table class="table table-dark table-striped">
-				<thead>
-					<tr>
-						<th scope="col">Head</th>
-						<th scope="col">Body</th>
-					</tr>
-				</thead>
-				<tbody>
-				
-				<tr>
-					<td>Cidade</td>
-					<td><%=cidade.getCity()%></td>
-				</tr>
-				<tr>
-					<td>Temperatura</td>
-					<td><%=cidade.getTemp() + "°"%></td>
-				</tr>
-				<tr>
-					<td>Data</td>
-					<td><%=cidade.getDate()%></td>
-				</tr>
-				<tr>
-					<td>Descricao</td>
-					<td><%=cidade.getDescription()%></td>
-				</tr>
-				<tr>
-					
-					<td>Dia/Noite</td>
-					<td><%=cidade.getCurrently()%></td>
-				</tr>
-				<tr>
-				    <td>Humidade</td>
-					<td><%=cidade.getHumidity() + "%"%></td>
-				</tr>
-				<tr>
-					<td>Velocidade do Vento</td>
-					<td><%=cidade.getWind_speedy()%></td>
-				</tr>
-				<tr>
-				    <td>Nascer do Sol</td>
-					<td><%=cidade.getSunrise()%></td>
-				</tr>
-				<tr>
-					
-					<td>Por so Sol</td>
-					<td><%=cidade.getSunset()%></td>
-				</tr>
-				<tr>
-				    <td>Condicao do Tempo</td>
-					<td><%=cidade.getCondition_slug()%></td>
-				</tr>
-</tbody>
-</table>
-</div>
-</div>
+	</div>
 </body>
 </html>

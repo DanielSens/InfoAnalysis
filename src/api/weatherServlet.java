@@ -37,7 +37,7 @@ public class weatherServlet extends HttpServlet {
 		cidade = gson.fromJson(api.weatherInfo(), Cidade.class); 
 		
 		 request.setAttribute("list", cidade);
-	     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/weather.jsp");
+	     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 	     dispatcher.forward(request, response);
 		
 	}
