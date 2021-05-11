@@ -2,7 +2,6 @@ package com.infoanalysis.jdbc;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
