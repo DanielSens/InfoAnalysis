@@ -13,8 +13,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-                <release>11</release>
-            </configuration>
+					<release>11</release>
+				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
@@ -33,13 +33,21 @@
 				<artifactId>heroku-maven-plugin</artifactId>
 				<version>2.0.8</version>
 				<configuration>
-                <appName>infoanalysis</appName>
-              </configuration>
+					<appName>infoanalysis</appName>
+				</configuration>
 			</plugin>
+
+
 		</plugins>
 
 	</build>
 	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>

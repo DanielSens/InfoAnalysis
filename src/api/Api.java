@@ -16,7 +16,8 @@ public class Api {
 	public String weatherInfo() throws IOException {
 
 		String result;
-		String api = "https://api.hgbrasil.com/weather?format=json&fields=only_results,temp,date,time,description,currently,city,humidity,wind_speedy,sunrise,sunset,condition_slug&key=5554743c&city_name=Curitiba,PR";
+		String api = "https://api.hgbrasil.com/weather?format=json&fields=only_results,temp,date,time,description,currently,city,humidity,"
+				+ "wind_speedy,sunrise,sunset,condition_slug&key=5554743c&city_name=Campinas,SP";
 		URL url = new URL(api);
 
 		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
