@@ -7,8 +7,12 @@ body {
   margin: 0;
   font-family: 'Oswald', sans-serif;
   background: #222;
-  background-image: url('https://source.unsplash.com/1600x900/?landscape');
+  background-image: url('https://source.unsplash.com/1920x1080/?landscape');
   font-size: 120%;
+}
+
+.logo{
+	font-family: 'Dancing Script', cursive;
 }
 .card {
   background: #000000d0;
