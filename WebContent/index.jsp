@@ -11,14 +11,10 @@ if (cidade == null) {
 	HttpSession sessao = request.getSession(false);
 	if (sessao != null) {
 		cidade = (Cidade) sessao.getAttribute("cidade");
-	}
-	else {
+	} else {
 		cidade = new Cidade();
 	}
 }
-
-
-
 %>
 <!DOCTYPE HTML>
 <html>
@@ -46,25 +42,14 @@ if (cidade == null) {
 
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-		<a class="navbar-brand" href="weather"><span class="mb-0 h1"
-			style="font-family: 'Dancing Script', cursive;">InfoAnalysis</span></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNav" aria-controls="navbarNav"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+		<a class="navbar-brand" style="color: white;">INFO ANALYSIS</a>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav ml-auto">
-
 				<li class="nav-item active"><a class="nav-link"
 					href="index.html">Home<span class="sr-only">(current)</span></a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="DashboardControllerServlet">Dashboard</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="PopulacaoControllerServlet">Tabela de dados</a></li>
-				<li class="nav-item"><a class="nav-link " href="sobre.html">Sobre</a>
-				</li>
-				<li class="nav-item"><a class="nav-link  " href="#">Ajuda</a></li>
+					href="dashboard.html">Dashboard</a></li>
+				<li class="nav-item"><a class="nav-link " href="sobre.html">Sobre</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -75,7 +60,7 @@ if (cidade == null) {
 		<div class="search">
 			<form action="weather" method="post">
 				<input type="text" class="search-bar" placeholder="Cidade, Estado"
-					name="cidade">
+					name="cidade" required>
 				<button>
 					<svg stroke="currentColor" fill="currentColor" stroke-width="0"
 						viewBox="0 0 1024 1024" height="1.5em" width="1.5em"
@@ -95,12 +80,13 @@ if (cidade == null) {
 		<%
 		} else {
 		%>
-		
+
 		<div class="Weather">
 			<h3 class="city">
 				Previsão do tempo em
 				<%=cidade.getCity()%></h3>
-			<h1 class="temp"><%=(int) cidade.getTemp()%>ºC</h1>
+			<h1 class="temp"><%=(int) cidade.getTemp()%>ºC
+			</h1>
 			<div class="flex">
 				<div class="description">
 					<%
@@ -108,29 +94,29 @@ if (cidade == null) {
 					%>
 					<i class="bi bi-cloudy" style="font-size: 2rem; color: white;"></i>
 					<%
-					} else if (cidade.getCondition_code() == 29 || cidade.getCondition_code() == 30){
-					%>	
+					} else if (cidade.getCondition_code() == 29 || cidade.getCondition_code() == 30) {
+					%>
 					<i class="bi bi-cloud-sun" style="font-size: 2rem; color: white;"></i>
 					<%
 					} else {
-						
+
 					}
 					%>
 					<%=cidade.getDescription()%>
 				</div>
-				</div>
 			</div>
-			<div class="humidity">
-				Humidade:
-				<%=(int) cidade.getHumidity()%>
-			</div>
-			<div class="wind">
-				Velocidade do Vento:
-				<%=cidade.getWind_speedy()%></div>
 		</div>
-		<%
-		}
-		%>
+		<div class="humidity">
+			Humidade:
+			<%=(int) cidade.getHumidity()%>
+		</div>
+		<div class="wind">
+			Velocidade do Vento:
+			<%=cidade.getWind_speedy()%></div>
+	</div>
+	<%
+	}
+	%>
 	</div>
 
 	</div>

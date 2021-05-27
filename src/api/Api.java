@@ -22,6 +22,8 @@ public class Api {
 				+ cidade;
 		URL url = new URL(api);
 
+		//KEY DE CONSULTA DANIEL: 5554743c
+		
 		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 		
 		int responseCode = connection.getResponseCode();
