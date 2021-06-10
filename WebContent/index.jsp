@@ -6,13 +6,16 @@
 
 
 <%
-Cidade cidade = (Cidade) request.getAttribute("list");
-if (cidade == null) {
+Weather cidade = (Weather) request.getAttribute("list");
+ArrayList<ForecastNextDay> forecastnextday = (ArrayList<ForecastNextDay>) request.getAttribute("listdays");
+if (cidade == null && forecastnextday == null) {
 	HttpSession sessao = request.getSession(false);
 	if (sessao != null) {
-		cidade = (Cidade) sessao.getAttribute("cidade");
+		cidade = (Weather) sessao.getAttribute("weather");
+		forecastnextday = (ArrayList<ForecastNextDay>) sessao.getAttribute("listdays");
 	} else {
-		cidade = new Cidade();
+		cidade = new Weather();
+		forecastnextday =  new ArrayList<ForecastNextDay>();
 	}
 }
 %>
@@ -114,11 +117,19 @@ if (cidade == null) {
 			Velocidade do Vento:
 			<%=cidade.getWind_speedy()%></div>
 	</div>
-	<%
-	}
-	%>
+<%-- 	<% --%>
+// 	}
+<%-- 	%> --%>
+<%-- 	<% --%>
+// 	for (ForecastNextDay days: forecastnextday){
+<%-- 		%> --%>
+<%-- 		<td><%=forecastnextday.%></td> --%>
+<%-- 		<td><%=forecastnextday.getMin()%></td> --%>
+<%-- 		<%}%> --%>
+<!-- 	%> -->
 	</div>
+	</div>
+	
 
-	</div>
 </body>
 </html>

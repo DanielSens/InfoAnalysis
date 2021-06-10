@@ -1,6 +1,7 @@
 package api;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -45,23 +46,32 @@ public class weatherServlet extends HttpServlet {
 	}
 
 	private void tempo(HttpServletRequest request, HttpServletResponse response, String cidade1) throws Exception {
-		Api api = new Api();
-		Cidade cidade = new Cidade();
+		WeatherApi api = new WeatherApi();
+		Weather weather = new Weather();
 		Gson gson = new GsonBuilder().create();
-		cidade = gson.fromJson(api.weatherInfo(cidade1), Cidade.class);
-		guardanaSessao(request, response, cidade);
-		request.setAttribute("list", cidade);
+		weather = gson.fromJson(api.weatherInfo(cidade1), Weather.class);
+		ForecastApi forecastApi = new ForecastApi();
+		Forecast forecast = new Forecast();
+		forecast = gson.fromJson(forecastApi.weatherInfo(cidade1), Forecast.class);
+		ArrayList<ForecastNextDay> forecastnextday = forecast.forecast;
+		guardanaSessao(request, response, weather,forecastnextday);
+		request.setAttribute("list", weather);
+		request.setAttribute("listdays", forecastnextday);
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-
+		
+		
 		dispatcher.forward(request, response);
 	}
 
-	private void guardanaSessao(HttpServletRequest request, HttpServletResponse response, Cidade cidade) {
+	private void guardanaSessao(HttpServletRequest request, HttpServletResponse response, Weather weather, ArrayList<ForecastNextDay> forecastnextday) {
 		HttpSession sessao = request.getSession();
-		if (cidade != null) {
-			sessao.setAttribute("cidade", cidade);
+		if (weather != null && forecastnextday != null) {
+			sessao.setAttribute("weather", weather);
+			sessao.setAttribute("forecastnextday", forecastnextday);
 		} else {
-			cidade = new Cidade();
+			weather = new Weather();
+			forecastnextday = new ArrayList<ForecastNextDay>();
 		}
 
 	}

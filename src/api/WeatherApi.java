@@ -11,7 +11,7 @@ import java.util.concurrent.CompletableFuture;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class Api {
+public class WeatherApi {
 	
 	
 	public String weatherInfo(String cidade) throws IOException {

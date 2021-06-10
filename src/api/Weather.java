@@ -1,6 +1,6 @@
 package api;
 
-public class Cidade {
+public class Weather {
 
 	private float temp;
 	private String date;
