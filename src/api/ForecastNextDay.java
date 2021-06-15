@@ -7,7 +7,6 @@ public class ForecastNextDay {
 	private int min;
 	private String description;
 	
-	
 	public String getDate() {
 		return date;
 	}
@@ -22,9 +21,7 @@ public class ForecastNextDay {
 	}
 	@Override
 	public String toString() {
-		return "ForecastNextDay [date=" + date + ", max=" + max + ", min=" + min + ", description=" + description + "]";
+		return "ForecastNextDay [Data=" + date + ", Max=" + max + ", Min=" + min + ", Descrição=" + description + "]";
 	}
 	
-	
-
 }

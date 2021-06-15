@@ -50,10 +50,13 @@ public class weatherServlet extends HttpServlet {
 		Weather weather = new Weather();
 		Gson gson = new GsonBuilder().create();
 		weather = gson.fromJson(api.weatherInfo(cidade1), Weather.class);
+		
 		ForecastApi forecastApi = new ForecastApi();
 		Forecast forecast = new Forecast();
 		forecast = gson.fromJson(forecastApi.weatherInfo(cidade1), Forecast.class);
 		ArrayList<ForecastNextDay> forecastnextday = forecast.forecast;
+		System.out.println(forecast);
+		
 		guardanaSessao(request, response, weather,forecastnextday);
 		request.setAttribute("list", weather);
 		request.setAttribute("listdays", forecastnextday);

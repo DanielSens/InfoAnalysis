@@ -50,8 +50,6 @@ if (cidade == null && forecastnextday == null) {
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a class="nav-link"
 					href="index.html">Home<span class="sr-only">(current)</span></a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="dashboard.html">Dashboard</a></li>
 				<li class="nav-item"><a class="nav-link " href="sobre.html">Sobre</a></li>
 			</ul>
 		</div>
@@ -73,8 +71,10 @@ if (cidade == null && forecastnextday == null) {
           </path>
         </svg>
 				</button>
-			</form>
+				
+			</form>		
 		</div>
+
 
 		<%
 		if (cidade == null) {
@@ -115,18 +115,26 @@ if (cidade == null && forecastnextday == null) {
 		</div>
 		<div class="wind">
 			Velocidade do Vento:
-			<%=cidade.getWind_speedy()%></div>
+			<%=cidade.getWind_speedy()%>
+		</div> <br>
+
+		<div>
+			<% if(forecastnextday != null){%>
+ 			<% for (ForecastNextDay days: forecastnextday) { %> 	
+ 	
+         <a>Dia: <th><%=days.getDate()%></th></a> <br>
+         <a>Minino: <th><%=days.getMin()%></th>ºC</a> <br>
+         <a>Máximo: <th><%=days.getMax()%></th>ºC</a> <br>
+         <a>Descrição: <th><%=days.getDescription()%></th></a>    <br>  <br>
+		<%}%>
+	<%}%>
+		</div>
 	</div>
-<%-- 	<% --%>
-// 	}
-<%-- 	%> --%>
-<%-- 	<% --%>
-// 	for (ForecastNextDay days: forecastnextday){
-<%-- 		%> --%>
-<%-- 		<td><%=forecastnextday.%></td> --%>
-<%-- 		<td><%=forecastnextday.getMin()%></td> --%>
-<%-- 		<%}%> --%>
-<!-- 	%> -->
+
+	<%}%>
+
+
+	
 	</div>
 	</div>
 	
